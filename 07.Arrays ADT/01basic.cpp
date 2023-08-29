@@ -10,7 +10,7 @@ struct Array
 void Display(struct Array &arr1)
 {
   int i;
-  cout<<"Array is :-";
+  cout << "Array is :-";
   for (i = 0; i < arr1.length; i++)
   {
     cout << arr1.A[i] << endl;
@@ -24,35 +24,36 @@ void Add(struct Array &arr1, int a)
   arr1.length++;
 }
 // Insert function to insert a function in an array;
-bool Insert(struct Array &arr1, int n, int a)
+int Insert(struct Array &arr1, int n, int a)
 {
   if (n < 0)
   {
-    return false;
+    return 0;
   }
   else if (n > arr1.length)
   {
-    return false;
+    return 0;
   }
   else
   {
-    for (int i = arr1.length; i > n; i++)
+    for (int i = arr1.length; i >= n; i--)
     {
-      arr1.A[arr1.length] = arr1.A[arr1.length - 1];
+      arr1.A[i] = arr1.A[i - 1];
     }
     arr1.A[n] = a;
   }
+  return 0;
 }
 // Delete function to delete an element form an array
-bool Delete(struct Array &arr1, int n)
+int Delete(struct Array &arr1, int n)
 {
   if (n < 0)
   {
-    return false;
+    return 0;
   }
   else if (n > arr1.length)
   {
-    return false;
+    return 0;
   }
   else
   {
@@ -63,26 +64,60 @@ bool Delete(struct Array &arr1, int n)
     }
     arr1.length--;
     cout << x << " deleted" << endl;
+    return 0;
   }
 }
-//linear search
-void Lsearch(struct Array &arr1, int key){
-  
+// linear search
+void Lsearch(struct Array &arr1, int key)
+{
+
   for (int i = 0; i < arr1.length; i++)
   {
-    if (arr1.A[i]==key)
+    if (arr1.A[i] == key)
     {
-      cout<<key<<"found at "<<i<<endl;
-    }else 
-    {
-      cout<<key<<"not found"<<endl;
+      cout << key << "found at " << i << endl;
     }
+    
   }
-  
+      cout << key << "not found" << endl;
+    
 }
-//Binary search
-void Bsearch(struct Array &arr1, int key){
-  
+// Binary search
+int Bsearch(struct Array &arr1, int key)
+{
+  int l=0;
+  int h=arr1.length-1;
+  int mid;
+    while(l<h){
+      mid=(l+h)/2;
+      if(arr1.A[mid]==key){
+        cout<<key <<" found at "<<mid<<endl;
+        return 0;
+      }
+      else if(arr1.A[mid]<key){
+        l=mid+1;
+      }else if(arr1.A[mid]>key){
+        h=mid-1;
+      }
+    }
+    cout<<"not found"<<endl;
+    return 0;
+}
+//reversing an array
+void Reverse(struct Array &arr1){
+  struct Array arrr;
+  arrr.size=arr1.size;
+  arrr.length=arr1.length;
+  arrr.A=new int[arrr.size];
+  for(int i =0,j=arr1.length-1; i<arr1.length;i++,j--){
+      arrr.A[i]=arr1.A[j];
+  }
+  for(int i=0;i<arr1.length;i++){
+    arr1.A[i]=arrr.A[i];
+  }
+  delete[] arrr.A;
+      arrr.A = nullptr;
+  cout<<"reversed"<<endl;
 }
 
 int main()
@@ -94,21 +129,26 @@ int main()
   arr.A = new int[arr.size];
   cout << "enter length" << endl;
   cin >> arr.length;
-  //taking basic array input
+  // taking basic array input
   cout << "enter array" << endl;
   for (i = 0; i < arr.length; i++)
   {
     cin >> arr.A[i];
   }
   int choice;
-  cout<<"menu :- "<<endl
-  <<"1. Display"<<endl
-  <<"2. Add"<<endl
-  <<"3. Insert"<<endl
-  <<"4. Delete"<<endl;
+  
   while (true)
   {
-    cin>>choice;
+    cout << "menu :- " << endl
+       << "1. Display" << endl
+       << "2. Add" << endl
+       << "3. Insert" << endl
+       << "4. Delete" << endl
+       <<"5. Linear Search"<<endl
+       <<"6. Binary Search"<<endl
+       <<"7. Reverse"<<endl;
+
+    cin >> choice;
     switch (choice)
     {
     case 1:
@@ -116,29 +156,45 @@ int main()
       break;
     case 2:
       int n;
-      cout<<"enter number"<<endl;
-      cin>>n;
+      cout << "enter number" << endl;
+      cin >> n;
       Add(arr, n);
       break;
     case 3:
-      int index;
-      int n;
-      cout<<"enter index "<<endl;
-      cin>>index;
-      cout<<"enter number "<<endl;
-      cin>>n;
-      Insert(arr, index, n);
+      int index1;
+      int m;
+      cout << "enter index " << endl;
+      cin >> index1;
+      cout << "enter number " << endl;
+      cin >> m;
+      Insert(arr, index1, m);
       break;
     case 4:
       int index;
-      cout<<"enter index "<<endl;
-      cin>>index;
-      Delete(arr,index);
+      cout << "enter index " << endl;
+      cin >> index;
+      Delete(arr, index);
       break;
     case 5:
-      Display(arr);
+      int key;
+      cout<<"enter key"<<endl;
+      cin>>key;
+      Lsearch(arr,key);
+      break;
+    case 6:
+      int key1;
+      cout<<"enter key"<<endl;
+      cin>>key1;
+      Bsearch(arr,key1);
+      break;
+    case 7:
+      Reverse(arr);
       break;
     default:
+      cout<<"invalid choice";
+      delete[] arr.A;
+      arr.A = nullptr;
+      return 0;
       break;
     }
   }
