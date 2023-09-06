@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void length(char str[]){
+int length(char str[]){
     int i=0;
     int c=0;
     while (str[i]!='\0')
@@ -9,12 +9,11 @@ void length(char str[]){
         c++;
         i++;
     }
-    cout<<"length is "<<c<<endl;
-    
+    return c;
 }
 int main (){
     char str[]="Welcome";
     cout<<str;
-    length(str);
+    cout<<length(str);
     return 0;
 }
