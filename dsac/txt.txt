@@ -1,0 +1,5 @@
+1. Write a program to
+a) Add two sparse matrices represented using triplet
+b) multiply two sparse matrices represented using triplet
+c) Add two sparse matrices represented using linked list.
+d) multiply two sparse matrices represented using linked list

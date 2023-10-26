@@ -42,7 +42,6 @@ int main()
     {
         for (int j = 1; j <= Ar.n; j++)
         {   
-            
             cin>>k;
             set(Ar,i,j,k);
         }
