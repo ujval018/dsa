@@ -1,0 +1,146 @@
+--------------------------SINGLE LINKED LIST
+
+180. Let's Code Count and Sum
+7min
+181. Maximum Element in a Linked List
+6min
+182. Let's Code Max for Linked List
+4min
+183. Searching in a Linked List
+5min
+184. Improve Searching in Linked List
+8min
+185. Let's Code Searching in Linked List
+8min
+186. Inserting in a Linked List
+17min
+187. Let's Code Insert for Linked List
+7min
+188. Creating a Linked List using Insert
+2min
+189. Creating a Linked List by Inserting at Last
+7min
+190. Inserting in a Sorted Linked List
+7min
+191. Let's Code Insert in Sorted Linked List
+6min
+192. Deleting from Linked List
+12min
+193. Let's Code Delete on Linked List
+6min
+194. Check if a Linked List is Sorted
+8min
+195. Let's Code to check if Linked List is Sorted
+3min
+196. Remove Duplicates from Sorted Linked List
+6min
+197. Let's Code to Remove Duplicates from Sorted Linked List
+3min
+198. Reversing a Linked List
+7min
+199. Reversing using Sliding Pointers
+10min
+200. Recursive Reverse for Linked List
+4min
+201. Let's Code Reversing a Linked List
+7min
+202. Concatenating 2 Linked Lists
+3min
+203. Merging 2 Linked Lists
+14min
+204. Let's Code to Concatenate and Merge Linked Lists
+9min
+205. Check for LOOP in Linked List
+9min
+206. Let's Code to Check LOOP
+4min
+207. Let's Code a C++ class for Linked List
+7min
+
+
+
+
+
+------------------------CIRCULAR LINKED LIST
+
+208. Circular Linked List
+7min
+209. Display Circular Linked List
+8min
+210. Let’s Code Circular Linked List
+7min
+211. Inserting in a Circular Linked List
+10min
+212. Let's Code Insert for a Circular Linked List
+6min
+213. Deleting From Circular Linked List
+7min
+214. Let's Code Delete for Circular Linked List
+5min
+
+
+
+----------------------DOUBLY LINKED LIST
+215. Doubly Linked List
+4min
+216. Let's Code Doubly Linked List
+5min
+217. Insert in a Doubly Linked List
+9min
+218. Let's Code Insert for Doubly Linked List
+4min
+219. Deleting from Doubly Linked List
+8min
+220. Let's Code Delete for Doubly Linked List
+4min
+221. Reverse a Doubly Linked List
+5min
+222. Let's Code Reverse for Doubly Linked List
+2min
+223. Circular Doubly Linked List
+7min
+224. Comparison of Linked List
+11min
+225. Comparison of Array with Linked List
+11min
+226. Student Challenge : Finding Middle Element of a Linked List.
+10min
+227. Student Challenge : Finding Intersecting point of Two Linked List
+9min
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int count(node *h1){
+    int count =0;
+    node *p=h1;
+    while (p != 0)
+    {
+        count++;
+        cout<<p->info<<"\n";
+        p=p->next;
+    }
+    return count;
+}
+int Rcount(node *h2){
+    static int count=0;
+    node *p=h2;
+    if (p!=0)
+    {
+        count++;
+        cout<<p->info<<"\n";        
+        Rcount(p->next);
+    }
+    return count;    
+}
