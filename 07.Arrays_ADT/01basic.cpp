@@ -1,6 +1,13 @@
 #include <iostream>
-#include <array.h>
+#include "array.h"
 using namespace std;
+
+/*# Compile each source file into an object file
+g++ -c file.cpp -o main.o
+# Link object files together to create the executable
+g++ main.o -o my_program
+*/
+
 /*structure*/
 
 ///////////////////////////////////////////////////////////////////////////////////////////
