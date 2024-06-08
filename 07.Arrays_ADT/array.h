@@ -1,4 +1,5 @@
-#include<iostream>
+#ifndef array_h
+#define array_h
 using namespace std;
 struct Array
 { // data members of array
@@ -184,5 +185,4 @@ void Sum(struct Array &arr1){
   }
   cout<<"sum is "<<sum<<endl;
 }
-
-int main();
+#endif
